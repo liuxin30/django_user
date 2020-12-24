@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Question</title>
+</head>
+<body>
+<form action="{% url 'polls:add' %}" method="post">
+      {% csrf_token %}
+    <label for="question">question: </label>
+    <input id="id_question" type="text" name="question"><br>
+    <label for="Pub_date">pob_date: </label>
+    <input id="pob_date" type="datetime-local" name="pob_date"><br>
+    <input type="submit" value="add">
+</form>
+</body>
+</html>

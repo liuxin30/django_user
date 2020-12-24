@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<form action="/index/" method="post">
+        {% csrf_token %}
+        {% for field in form %}
+            <li>{{ field }}</li>
+        {% endfor %}
+        {{ form.media }}
+        <input type="submit" value="Submit">
+    </form>
+{% endblock %}
