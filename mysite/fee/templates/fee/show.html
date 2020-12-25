@@ -1,12 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'fee/style.css'%}">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title></title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
 </head>
 <body>
-    <p>
-            <li>{{ fee }}</li>
-    </p>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-6 col-md-4"></div>
+        <div class="col-xs-6 col-md-4">
+            <div class="show-text">
+                <p class="show-text">应缴费用: {{ fee }} 元</p>
+                <div>
+                    <a href="{% url 'fee:index' %}" class="btn btn-primary btn-lg active button-center"
+                       role="button">返回</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 col-md-4"></div>
+    </div>
+</div>
 </body>
 </html>

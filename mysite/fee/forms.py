@@ -13,12 +13,16 @@ class InfoForm(forms.ModelForm):
         }
 
     def clean(self):
-        name = self.cleaned_data['name']
-        id_num = self.cleaned_data['id_num']
-
-        info = Info.objects.get(name=name)
-        if info.id_num != id_num:
-            self.cleaned_data["message"] = "姓名或身份证号错误"
-            raise forms.ValidationError('姓名或身份证号错误')
-        self.cleaned_data["fee"] = info.fee
+        try:
+            name = self.cleaned_data['name']
+            id_num = self.cleaned_data['id_num']
+        except KeyError:
+            self.cleaned_data["message"] = "姓名或身份证号不能为空！请重新输入"
+            raise forms.ValidationError('姓名或身份证号不能为空')
+        else:
+            info = Info.objects.get(name=name)
+            if info.id_num != id_num:
+                self.cleaned_data["message"] = "姓名或身份证号错误！请重新输入"
+                raise forms.ValidationError('姓名或身份证号错误')
+            self.cleaned_data["fee"] = info.fee
         return self.cleaned_data

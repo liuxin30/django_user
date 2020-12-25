@@ -1,0 +1,24 @@
+div {
+
+}
+form.form-center {
+  margin: 50% auto;
+}
+
+.button-center {
+  margin: auto 40%;
+  width: 20%;
+}
+
+div.show-text {
+  margin: 50% auto;
+}
+
+p.show-text {
+  font-size: 35;
+  text-align: center;
+}
+
+p.err-msg {
+  color: dc3545;
+}
